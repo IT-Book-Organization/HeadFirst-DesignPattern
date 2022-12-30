@@ -1,5 +1,7 @@
 # HeadFirst-DesignPattern
 
+<img width="294" alt="HeadFirst" src="https://user-images.githubusercontent.com/76640167/210064651-ec3da0a9-a4f8-4a74-9eb7-9a5e17d4dcfa.png">
+
 [헤드퍼스트 디자인패턴](http://www.yes24.com/Product/Goods/108192370)을 읽고, 그 내용과 개념을 정리한 레포지토리입니다.
 
 잘못된 내용은 이슈와 PR로 알려주세요.
