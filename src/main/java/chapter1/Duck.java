@@ -1,3 +1,5 @@
+package main.java.chapter1;
+
 public abstract class Duck {
 
     FlyBehavior flyBehavior;

@@ -1,3 +1,5 @@
+package main.java.chapter1;
+
 public class RubberDuck extends Duck{
     public RubberDuck() {
         this.flyBehavior = new FlyNoWay();
