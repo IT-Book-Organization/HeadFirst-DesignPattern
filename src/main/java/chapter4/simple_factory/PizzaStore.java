@@ -1,17 +1,16 @@
 package main.java.chapter4.simple_factory;
 
 public class PizzaStore {
+    SimplePizzaFactory factory;
+
+    public PizzaStore(SimplePizzaFactory factory) {
+        this.factory = factory;
+    }
 
     public Pizza orderPizza(String type) {
         Pizza pizza;
 
-        if (type.equals("cheese")) {
-            pizza = new CheesePizza();
-        } else if (type.equals("pepperoni")) {
-            pizza = new PepperoniPizza();
-        } else {
-            pizza = new CheesePizza();
-        }
+        pizza = factory.createPizza(type);
 
         pizza.prepare();
         pizza.bake();
