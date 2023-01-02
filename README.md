@@ -15,7 +15,7 @@
 2. [옵저버 패턴](/Chapter2/README.md)
 3. [데코레이터 패턴](/Chapter3/README.md)
 4. [팩토리 패턴](/Chapter4/README.md)
-5. 싱글턴 패턴
+5. [싱글턴 패턴](/Chapter5/README.md)
 6. 커맨드 패턴
 7. 어댑터 패턴과 퍼사드 패턴
 8. 템플릿 메소드 패턴
