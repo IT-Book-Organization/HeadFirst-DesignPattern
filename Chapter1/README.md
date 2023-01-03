@@ -87,7 +87,7 @@ public class RubberDuck extends Duck{
 }
 ```
 
-Duck에서 flyBehavior를 인스턴스 변수로 사용하여, **3번째 디자인 원칙인 ‘상속보다는 구성을 사용한다.’**가 지켜진 것도 볼 수 있다.
+Duck에서 flyBehavior를 인스턴스 변수로 사용하여, **3번째 디자인 원칙인 ‘상속보다는 구성을 사용한다.’** 가 지켜진 것도 볼 수 있다.
 
 또 FlyBehavior의 알고리즘군을 교체할 수 있게끔 하기위하여 setter를 추가한 것도 확인할 수 있다.
 
