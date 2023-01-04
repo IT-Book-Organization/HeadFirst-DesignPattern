@@ -50,7 +50,7 @@ component를 인스턴스 변수로 가지고 있어 Chapter1의 **상속보다�
 
 추가기능을 데코레이터 패턴을 통해 적용한 구조를 보자
 
-<p align="center"><img width="800" alt="그림1" src="https://user-images.githubusercontent.com/76640167/210151190-228974b2-6f07-439e-99b2-7d9a4020d73a.png"></p>
+<p align="center"><img width="800" alt="그림1" src="https://user-images.githubusercontent.com/76640167/210564737-88bd306a-a3ab-4cd7-82b3-06bd50aa4e34.png"></p>
 
 
 즉, 이제 재료가 추가되어도 Decorator를 상속 받는 클래스를 구현하면 된다. (OCP, 확장되어도 기존의 코드에는 변경이 없다.)
