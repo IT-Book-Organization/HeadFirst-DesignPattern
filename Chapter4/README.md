@@ -21,7 +21,7 @@ if(picnic) {
 
 팩토리 패턴에서는 **인스턴스를 만드는 부분을 캡슐화하여 분리**한다.
 
----
+<br/><br/>
 
 ## 간단한 팩토리
 
@@ -122,7 +122,7 @@ public class SimplePizzaFactory {
 
 참고 : 간단한 팩토리는 디자인 패턴이라기 보다는 자주 쓰이는 관용구에 가깝다.
 
----
+<br/><br/>
 
 ## 팩토리 메소드 패턴
 
@@ -276,7 +276,7 @@ public class PizzaTestDrive {
 
 - 간단한 기능을 사용할 때보다 많은 클래스를 정의해야 하기 때문에 코드량이 증가한다.
 
----
+<br/><br/>
 
 ## 디자인 원칙 (DIP, Dependency Injection Principle)
 
@@ -308,7 +308,7 @@ public class PizzaTestDrive {
 
 위 예시와 같이 설명하면, 보통 PizzaStore를 만들고, 여러 구상 객체인 Pizza를 만들 것이다. PizzaStore → PizzaImpl 의존관계가 한방향으로만 간다. 그러나 의존관계역전 원칙을 지키키 위하여 Pizza를 추상화하여 인터페이스로 만들어야하고, 여러 구상 객체들이 Pizza를 상속 받게된다. 즉 다음과 같은 방향을 갖는다. PizzaStore → Pizza ← Pizzaimpl 이렇게 구상 클래스의 방향이 반대로 역전된 것을 볼 수 있다. 그래서 역전이다.
 
----
+<br/><br/>
 
 ## 추상 팩토리 패턴
 
@@ -474,7 +474,7 @@ public class CheesePizza extends Pizza {
 
 제품군을 추가하려면 인터페이스에 메소드를 추가해야한다.
 
----
+<br/><br/>
 
 ### 간단한 팩토리 vs 팩토리 메소드 패턴 vs 추상 팩토리 패턴
 
