@@ -183,7 +183,7 @@ public class TeaWithHook extends CaffeineBeverageWithHook{
 
 (할리우드에서 면접관이 “먼저 연락하지 마세요. 연락 드릴게요”라고 하는 것과 같아서 이름이 붙여졌다고 한다.)
 
-저수준 구성 요소에서 고수준 구성요소를 직접 호출할 수 없게 하여 **의존성 부패(dependency rot)** 를 방지할 수 있다.
+저수준 구성 요소에서 고수준 구성 요소를 직접 호출할 수 없게 하여 **의존성 부패(dependency rot)** 를 방지할 수 있다.
 
 <br/>
 
@@ -234,11 +234,11 @@ private static void mergeSort(Object src[], Object dest[],int low, int high, int
 1. `Arrays.sort(배열)`이 호출된다.
 2. 두항목을 비교하는 `compareTo()`가 불리는데, `compareTo()`는 각 객체에 의존한다.
 
-위에 템플릿 메소드 패턴에서처럼 서브 클래스를 사용하지 않았는데, 여기서는 모든 배열에서 sort()를 쓸 수 있도록 정적 메소드로 만들었다.
+위에 템플릿 메소드 패턴에서처럼 서브 클래스를 사용하지 않았는데, 여기서는 모든 배열에서 `sort()`를 쓸 수 있도록 정적 메소드로 만들었다.
 
-알고리즘의 단계는 정적 메소드인 mergeSort()에 구현되어있고, **정렬 알고리즘 단계 중 하나인 비교는 배열의 원소에서 구현(compareTo)**하므로 템플릿 메소드 패턴임을 알 수 있다.
+알고리즘의 단계는 정적 메소드인 `mergeSort()`에 구현되어있고, **정렬 알고리즘 단계 중 하나인 비교는 배열의 원소에서 구현(compareTo)** 하므로 템플릿 메소드 패턴임을 알 수 있다.
 
-각 원소들이 compareTo() 메소드를 구현했는지 알기 위해 compareTo()만을 가지고 있는 Comparable 인터페이스를 도입하여 이 인터페이스를 구현하면 정렬을 사용할 수 있다.
+각 원소들이 `compareTo()` 메소드를 구현했는지 알기 위해 `compareTo()`만을 가지고 있는 Comparable 인터페이스를 도입하여 이 인터페이스를 구현하면 정렬을 사용할 수 있다.
 
 <br/>
 
@@ -269,7 +269,7 @@ public class MyFrame extends JFrame {
 }
 ```
 
-기본적으로 paint()는 hook 메소드로 아무일 도 하지 않고, paint()를 오버라이드하여 원하는 화면을 그릴 수 있게된다.
+기본적으로 `paint()`는 hook 메소드로 아무일 도 하지 않고, `paint()`를 오버라이드하여 원하는 화면을 그릴 수 있게된다.
 
 <br/>
 
@@ -277,9 +277,9 @@ public class MyFrame extends JFrame {
 
 ArrayList, LinkedList 같은 자바의 리스트 컬렉션은 리스트에서 필요한 기능을 구현해주는 AbstractList 클래스를 확장한다.
 
-AbstractList는 cntkd apthemdls get()과 size()에 의존하는 subList()라는 템플릿 메소드가 있어서 get()과 size()를 구현하여야한다.
+AbstractList는 추상 메소드인 `get()`과 `size()`에 의존하는 `subList()`라는 템플릿 메소드가 있어서 `get()`과 `size()`를 구현하여야한다.
 
-아래는 String만 들어가는 리트스를 구현한 것이다.
+아래는 String만 들어가는 리스트를 구현한 것이다.
 
 ```java
 // AbstractList provides a skeletal implementation of the List interface
