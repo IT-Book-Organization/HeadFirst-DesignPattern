@@ -278,7 +278,7 @@ public class HomeTheaterFacade {
 }
 ```
 
-즉, 클라이언트는 퍼사드의 watchMovie(), endMoive() 등을 호출하여 똑같은 기능을 사용할 수 있다.
+즉, 클라이언트는 퍼사드의 `watchMovie()`, `endMoive()` 등을 호출하여 똑같은 기능을 사용할 수 있다.
 
 이를 통해 클라이언트는 서브 시스템과 긴밀한 연결을 끊고 분리될 수 있다.
 
@@ -314,6 +314,6 @@ public float getTemp() {
 }
 ```
 
-위 코드를 보면 station 인스턴스로부터 return 받은 객체의 메소드를 호출하여 최소 지식 원칙을 지키지 못하였다. 지키기 위해선 Station 객체에 getTemperature() 메소드를 생성하는 것이 옳다.
+위 코드를 보면 station 인스턴스로부터 return 받은 객체의 메소드를 호출하여 최소 지식 원칙을 지키지 못하였다. 지키기 위해선 Station 객체에 `getTemperature()` 메소드를 생성하는 것이 옳다.
 
 퍼사드 패턴에서는 클라이언트의 친구를 퍼사드 객체 하나로 단순화하여, 최소 지식 원칙을 지켰다.
