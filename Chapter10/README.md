@@ -4,17 +4,17 @@
 
 <br/>
 
-**상태를 별도의 클래스로 캡슐화**한 다음 **현재 상태를 나타내는 객체에게 행동을 위임**하므로 내부 상태가 바뀔 때 행동이 달리지게 된다는 사실을 쉽게 알 수 있다.
+**상태를 별도의 클래스로 캡슐화**한 다음 **현재 상태를 나타내는 객체에게 행동을 위임**하므로 내부 상태가 바뀔 때 행동이 달라지게 된다는 사실을 쉽게 알 수 있다.
 
 클라이언트의 관점에서 지금 상태에 따라 사용하는 객체의 행동이 완전히 달라져 마치 그 객체가 다른 클래스로부터 만들어진 객체처럼 느껴진다.
 
-상태패턴을 사용하지 않으면, 상태마다의 모든 분기를 if문을 사용하여 분기 처리 하여야한다. 즉, 확장에 닫혀있게 되고, 상태패턴을 이용하면 확장에 바교적 열려있게 된다.
+상태패턴을 사용하지 않으면, 상태마다의 모든 분기를 if문을 사용하여 분기 처리 하여야한다. 즉, 확장에 닫혀있게 되고, 상태패턴을 이용하면 확장에 비교적 열려있게 된다.
 
 <br/>
 
 ### 클래스 다이어그램
 
-<p align="center"><img width="480" alt="State" src="https://user-images.githubusercontent.com/76640167/211810640-308977a8-2def-4d4a-a198-0c2f28e25899.png">
+<p align="center"><img width="700" alt="State" src="https://user-images.githubusercontent.com/76640167/211810640-308977a8-2def-4d4a-a198-0c2f28e25899.png">
 
 - `Context` : 현재 상태를 구성으로 저장하고 있다. 현재 상태에게 행동을 위임한다.
 - `State` : 모든 구상 상태 클래스의 공통 인터페이스다. 모든 상태 클래스에서 같은 인터페이스를 구현하므로 바꿔 쓸 수 있다.
@@ -29,62 +29,63 @@ e.g
 
 ```java
 public class GumballMachine {
- 
-	State soldOutState;
-	State noQuarterState;
-	State hasQuarterState;
-	State soldState;
- 
-	State state;
-	int count = 0;
- 
-	public GumballMachine(int numberGumballs) {
-		soldOutState = new SoldOutState(this);
-		noQuarterState = new NoQuarterState(this);
-		hasQuarterState = new HasQuarterState(this);
-		soldState = new SoldState(this);
 
-		this.count = numberGumballs;
- 		if (numberGumballs > 0) {
-			state = noQuarterState;
-		} else {
-			state = soldOutState;
-		}
-	}
- 
-	public void insertQuarter() {
-		state.insertQuarter();
-	}
- 
-	public void ejectQuarter() {
-		state.ejectQuarter();
-	}
- 
-	public void turnCrank() {
-		state.turnCrank();
-		state.dispense();
-	}
- 
-	void releaseBall() {
-		System.out.println("A gumball comes rolling out the slot...");
-		if (count > 0) {
-			count = count - 1;
-		}
-	}
- 
-	int getCount() {
-		return count;
-	}
- 
-	void refill(int count) {
-		this.count += count;
-		System.out.println("The gumball machine was just refilled; its new count is: " + this.count);
-		state.refill();
-	}
+    State soldOutState;
+    State noQuarterState;
+    State hasQuarterState;
+    State soldState;
 
-	void setState(State state) {
-		this.state = state;
-	}
+    State state;
+    int count = 0;
+
+    public GumballMachine(int numberGumballs) {
+        soldOutState = new SoldOutState(this);
+        noQuarterState = new NoQuarterState(this);
+        hasQuarterState = new HasQuarterState(this);
+        soldState = new SoldState(this);
+
+        this.count = numberGumballs;
+        if (numberGumballs > 0) {
+            state = noQuarterState;
+        } else {
+            state = soldOutState;
+        }
+    }
+
+    public void insertQuarter() {
+        state.insertQuarter();
+    }
+
+    public void ejectQuarter() {
+        state.ejectQuarter();
+    }
+
+    public void turnCrank() {
+        state.turnCrank();
+        state.dispense();
+    }
+
+    void releaseBall() {
+        System.out.println("A gumball comes rolling out the slot...");
+        if (count > 0) {
+            count = count - 1;
+        }
+    }
+
+    int getCount() {
+        return count;
+    }
+
+    void refill(int count) {
+        this.count += count;
+        System.out.println("The gumball machine was just refilled; its new count is: " + this.count);
+        state.refill();
+    }
+
+    void setState(State state) {
+        this.state = state;
+    }
+
     public State getState() {
         return state;
     }
@@ -104,25 +105,26 @@ public class GumballMachine {
     public State getSoldState() {
         return soldState;
     }
- 
-	public String toString() {
-		StringBuffer result = new StringBuffer();
-		result.append("\nMighty Gumball, Inc.");
-		result.append("\nJava-enabled Standing Gumball Model #2004");
-		result.append("\nInventory: " + count + " gumball");
-		if (count != 1) {
-			result.append("s");
-		}
-		result.append("\n");
-		result.append("Machine is " + state + "\n");
-		return result.toString();
-	}
+
+    public String toString() {
+        StringBuffer result = new StringBuffer();
+        result.append("\nMighty Gumball, Inc.");
+        result.append("\nJava-enabled Standing Gumball Model #2004");
+        result.append("\nInventory: " + count + " gumball");
+        if (count != 1) {
+            result.append("s");
+        }
+        result.append("\n");
+        result.append("Machine is " + state + "\n");
+        return result.toString();
+    }
 }
 ```
 
 state 변수에 현재 상태를 저장한다.
 
-또, 존재하는 각각의 상태를 인스턴스 변수로 모두 갖고있어 각각의 `ConcreteState`에서 상태를 변경하고 싶을 때 `Context.get~()`로 상태를 가져와 `Context.setState()`로 현재 상태를 동작에 맞게 변경할 수 있다.
+또, 존재하는 각각의 상태를 인스턴스 변수로 모두 갖고있어 각각의 `ConcreteState`에서 상태를 변경하고 싶을 때 `Context.get~()`로 상태를 가져와 `Context.setState()`로 현재
+상태를 동작에 맞게 변경할 수 있다.
 
 즉, `ConcreteState`도 `Context`를 인스턴스 변수로 가지고 있다.
 
@@ -134,13 +136,16 @@ getter 메소드로 굳이 가져오는 이유는 `ConcreteState` 간의 의존�
 
 ```java
 public interface State {
- 
-	public void insertQuarter();
-	public void ejectQuarter();
-	public void turnCrank();
-	public void dispense();
-	
-	public void refill();
+
+    public void insertQuarter();
+
+    public void ejectQuarter();
+
+    public void turnCrank();
+
+    public void dispense();
+
+    public void refill();
 }
 ```
 
@@ -152,35 +157,36 @@ public interface State {
 
 ```java
 public class HasQuarterState implements State {
-	GumballMachine gumballMachine;
- 
-	public HasQuarterState(GumballMachine gumballMachine) {
-		this.gumballMachine = gumballMachine;
-	}
-  
-	public void insertQuarter() {
-		System.out.println("You can't insert another quarter");
-	}
- 
-	public void ejectQuarter() {
-		System.out.println("Quarter returned");
-		gumballMachine.setState(gumballMachine.getNoQuarterState());
-	}
- 
-	public void turnCrank() {
-		System.out.println("You turned...");
-		gumballMachine.setState(gumballMachine.getSoldState());
-	}
+    GumballMachine gumballMachine;
+
+    public HasQuarterState(GumballMachine gumballMachine) {
+        this.gumballMachine = gumballMachine;
+    }
+
+    public void insertQuarter() {
+        System.out.println("You can't insert another quarter");
+    }
+
+    public void ejectQuarter() {
+        System.out.println("Quarter returned");
+        gumballMachine.setState(gumballMachine.getNoQuarterState());
+    }
+
+    public void turnCrank() {
+        System.out.println("You turned...");
+        gumballMachine.setState(gumballMachine.getSoldState());
+    }
 
     public void dispense() {
         System.out.println("No gumball dispensed");
     }
-    
-    public void refill() { }
- 
-	public String toString() {
-		return "waiting for turn of crank";
-	}
+
+    public void refill() {
+    }
+
+    public String toString() {
+        return "waiting for turn of crank";
+    }
 }
 ```
 
