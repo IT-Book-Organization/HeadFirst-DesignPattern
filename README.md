@@ -18,7 +18,7 @@
 8. [템플릿 메소드 패턴](/Chapter8/README.md)
 9. [반복자 패턴과 컴포지트 패턴](/Chapter9/README.md)
 10. [상태 패턴](/Chapter10/README.md)
-11. 프록시 패턴
+11. [프록시 패턴](/Chapter11/README.md)
 12. 복합 패턴
 13. 실전 디자인 패턴
 14. 기타 패턴
