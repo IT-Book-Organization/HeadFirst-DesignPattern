@@ -7,14 +7,16 @@ public class DuckSimulator {
 	}
 
 	void simulate() {
-		Quackable mallardDuck = new MallardDuck();
-		Quackable redheadDuck = new RedheadDuck();
+		Quackable mallardDuck = new QuackCounter(new MallardDuck());
+		Quackable redheadDuck = new QuackCounter(new RedheadDuck());
 		Quackable goose = new GooseAdapter(new Goose());
 		System.out.println("\n오리 시뮬레이션 게임");
  
 		simulate(mallardDuck);
 		simulate(redheadDuck);
 		simulate(goose);
+
+		System.out.println(QuackCounter.getNumberOfQuacks());
 	}
 
 	// 다형성이 활용됨.
