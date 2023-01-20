@@ -12,10 +12,14 @@ public class DuckSimulator {
 		Quackable redheadDuck = duckFactory.createRedheadDuck();
 		Quackable goose = new GooseAdapter(new Goose());
 		System.out.println("\n오리 시뮬레이션 게임");
- 
-		simulate(mallardDuck);
-		simulate(redheadDuck);
-		simulate(goose);
+
+		Flock flockOfDucks = new Flock();
+
+		flockOfDucks.add(mallardDuck);
+		flockOfDucks.add(redheadDuck);
+		flockOfDucks.add(goose);
+
+		simulate(flockOfDucks);
 
 		System.out.println(QuackCounter.getNumberOfQuacks());
 	}
