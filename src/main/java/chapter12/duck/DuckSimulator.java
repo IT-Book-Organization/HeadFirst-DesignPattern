@@ -3,12 +3,13 @@ package main.java.chapter12.duck;
 public class DuckSimulator {
 	public static void main(String[] args) {
 		DuckSimulator simulator = new DuckSimulator();
-		simulator.simulate();
+		AbstractDuckFactory duckFactory = new CountingDuckFactory();
+		simulator.simulate(duckFactory);
 	}
 
-	void simulate() {
-		Quackable mallardDuck = new QuackCounter(new MallardDuck());
-		Quackable redheadDuck = new QuackCounter(new RedheadDuck());
+	void simulate(AbstractDuckFactory duckFactory) {
+		Quackable mallardDuck = duckFactory.createMallardDuck();
+		Quackable redheadDuck = duckFactory.createRedheadDuck();
 		Quackable goose = new GooseAdapter(new Goose());
 		System.out.println("\n오리 시뮬레이션 게임");
  
