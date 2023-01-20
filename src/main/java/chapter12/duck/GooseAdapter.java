@@ -3,13 +3,10 @@ package main.java.chapter12.duck;
 public class GooseAdapter implements Quackable {
 	Goose goose;
 	Observable observable;
-
-	public GooseAdapter() {
-		this.observable = new Observable(this);
-	}
  
 	public GooseAdapter(Goose goose) {
 		this.goose = goose;
+		this.observable = new Observable(this);
 	}
  
 	public void quack() {

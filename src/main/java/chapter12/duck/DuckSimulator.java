@@ -19,6 +19,9 @@ public class DuckSimulator {
 		flockOfDucks.add(redheadDuck);
 		flockOfDucks.add(goose);
 
+		Quackologist quackologist = new Quackologist();
+		flockOfDucks.registerObserver(quackologist);
+
 		simulate(flockOfDucks);
 
 		System.out.println(QuackCounter.getNumberOfQuacks());
