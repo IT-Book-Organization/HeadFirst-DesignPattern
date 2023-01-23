@@ -11,7 +11,7 @@
 
 <br/>
 
-오리는 모두 울음소리를 낼 수 있으므로 `Quckable 인터페이스`를 추가한다.
+오리는 모두 울음소리를 낼 수 있으므로 `Quackable 인터페이스`를 추가한다.
 
 ```java
 public interface Quackable {
@@ -68,7 +68,7 @@ public class DuckSimulator {
 
 이때 다르게 우는 Goose 객체가 생겼다고 하자. Goose 객체는 거위라서 quack() 메소드가 아니라 honk() 메소드를 통해서만 울 수 있다.
 
-이때, Goose 는 `Quackable`을 상속하여 `quakc 메소드`를 실행할 수 없으므로 어댑터 패턴을 사용하여야한다.
+이때, Goose 는 `Quackable`을 상속하여 `quack 메소드`를 실행할 수 없으므로 어댑터 패턴을 사용하여야한다.
 
 <br/>
 
@@ -397,7 +397,7 @@ public class MallardDuck implements Quackable{
 
 실제 옵저버에 등록 및 연락하는 기능을 할 Observable 클래스를 구성으로 사용하고 있다.
 
-`Quackable`이 `QuackObservable`을 상속하게 만들었으므로, `Qucakable`을 상속받는 모든 객체에서도 `QuackObservable` 기능을 구현해야만한다.
+`Quackable`이 `QuackObservable`을 상속하게 만들었으므로, `Quackable`을 상속받는 모든 객체에서도 `QuackObservable` 기능을 구현해야만한다.
 
 <br/>
 
@@ -599,7 +599,7 @@ MVC 패턴은 모델-뷰-컨트롤러를 줄인 표현이다.
 
 디스플레이는 여러 단계로 겹쳐있는 윈도우, 패널, 버튼 등으로 구성되어있다.
 
-컨트롤러가 뷰에게 화면을 갱신해 달라고 요청하면 최상위 뷰 구성 요서에게만 화면을 갱신하라고 얘기하면 된다.
+컨트롤러가 뷰에게 화면을 갱신해 달라고 요청하면 최상위 뷰 구성 요소에게만 화면을 갱신하라고 얘기하면 된다.
 
 <br/>
 
