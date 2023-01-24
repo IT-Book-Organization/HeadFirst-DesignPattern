@@ -1,5 +1,7 @@
 # 실전 디자인 패턴
 
+<br/>
+
 ## 디자인 패턴의 정의
 
 > 💡 `패턴(Pattern)`은 특정 **컨텍스트** 내에서 주어진 **문제**의 **해결책**이다.
@@ -47,6 +49,7 @@
 즉, 패턴의 정의에서 포스란 **해결책을 형성하고 제어하는 것**이다.
 
 <br/>
+<br/>
 
 The notion of `force` generalizes the kinds of criteria that software engineers **use to justify designs and
 implementations.**
@@ -64,6 +67,7 @@ For example, correctness, resources, structure, construction, usage.
 (더 자세한 내용은 [해당 링크](https://www.cs.unc.edu/~stotts/COMP723-s13/patterns/forces.html)를 참고하길 바란다.)
 
 <br/>
+<br/>
 
 해결책이 포스의 양면 사이에서 적절하게 **균형**을 이룰 수 있어야 비로소 제대로 된 패턴이 만들어진다.
 
@@ -74,7 +78,7 @@ For example, correctness, resources, structure, construction, usage.
 <br/>
 <br/>
 
-## 패턴 카탈로그
+# 패턴 카탈로그
 
 ### 구성
 
@@ -567,11 +571,8 @@ Provide a surrogate or placeholder for another object to control access to it.
 - `프록시 패턴` : 어떤 클래스로의 접근을 제어하는 용도
 
 <br/>
-
----
-
 <br/>
-
+<br/>
 
 
 이렇게 `생성`, `구조`, `행동의` 3가지 범주로 나눈 후,  
@@ -581,16 +582,15 @@ Provide a surrogate or placeholder for another object to control access to it.
 other.)
 
 <br/>
-
----
-
+<br/>
+<br/>
 <br/>
 
 위와는 별개로, `클래스`를 다루는 패턴인지, `객체`를 다루는 패턴인지에 따라 패턴을 분류하는 방법도 있다.
 
 <br/>
 
-## 클래스 패턴(Class Pattern)
+### 클래스 패턴(Class Pattern)
 
 > 💡 클래스 사이의 관계가 상속으로 어떻게 정의되는지를 다룬다.
 
@@ -608,7 +608,7 @@ other.)
 
 <br/>
 
-## 객체 패턴(Object Pattern)
+### 객체 패턴(Object Pattern)
 
 > 💡 객체 사이의 관계를 다루며, 객체 사이의 관계는 보통 구성으로 정의된다.
 
@@ -658,7 +658,7 @@ other.)
 <br/>
 <br/>
 
-## 패턴으로 생각하기
+# 패턴으로 생각하기
 
 `패턴으로 생각한다`는 것은 어떤 디자인을 봤을 때 **패턴 적용 여부를 결정할 수 있는 안목**을 가졌다는 것이다.
 
@@ -767,7 +767,7 @@ other.)
 <br/>
 <br/>
 
-## 안티 패턴(Anti-Pattern)
+# 안티 패턴(Anti-Pattern)
 
 > 💡 안티 패턴은 어떤 문제의 나쁜 해결책에 이르는 길을 알려준다.
 
