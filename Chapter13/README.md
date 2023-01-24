@@ -160,7 +160,7 @@ For example, correctness, resources, structure, construction, usage.
 <br/>
 
 - 아래의 패턴 목록들 중 Chapter 1 ~ 12에서 설명되지 않은 패턴들은 Chapter 13에서 설명된다.
-- 클래스 다이어그램들과 영문 설명은 ‘GoF Design Patterns Card’에서 가져왔다.
+- 클래스 다이어그램들과 영문 설명은 [GoF Design Patterns Card](/Chapter13/GoF%20Design%20Patterns%20Card.pdf)에서 가져왔다.
 
 <br/>
 <br/>
