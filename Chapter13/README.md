@@ -148,6 +148,99 @@ For example, correctness, resources, structure, construction, usage.
 
 <br/>
 <br/>
+
+`Abstract Factory 패턴`은 종종 `Factory Method 패턴`이나 `Prototype 패턴`을 이용해서 구현되며,  
+`Singleton 패턴`을 이용해서 하나의 공유되는 객체를 관리할 수 있다.
+
+<br/>
+
+Builder 패턴은 복잡한 객체를 생성한다는 점에서 Abstract Factory 패턴과 유사하다.
+
+그러나 `Abstract Factory 패턴`이 **제품군(Product Family) 별로 객체를 생성**하는데 중점을 둔다면  
+`Builder 패턴`은 **단계적으로 객체를 생성**한다는 점이 커다란 차이점이다.
+
+또한 `Builder 패턴`의 경우에는 몇 단계의 작업을 거친 후에야 최종적으로 결과를 되돌리는데 반해,  
+`Abstract Factory 패턴`의 경우에는 곧바로 생성된 결과를 되돌린다.
+
+Builder 패턴에 의해 생성되는 객체는 `Composite 패턴`의 형태일 때가 많다.
+
+<br/>
+
+`Factory Method 패턴`은 `Abstract Factory 패턴`을 구현할 때 많이 사용된다.
+
+또한 Factory Method 패턴은 `Template Method 패턴` 내에서 불리어지는 경우가 많다.
+
+<br/>
+
+`Prototype 패턴`은 `Abstract Factory 패턴`과 같이 사용되거나 대신 사용될 수도 있다.
+
+또한 `Prototype 패턴`은 `Composite 패턴`이나 `Decorator 패턴`이 많이 사용되는 곳에서 같이 사용하면 유용할 경우가 많다.
+
+Prototype 패턴과 Factory Method 패턴을 비교해보면 `Prototype 패턴`은 객체 생성시 반드시 하위 클래스를 필요로 하지 않는 대신,  
+생성된 객체를 초기화시키기 위한 인터페이스를 별도로 필요로 할 경우가 많다.
+
+반면 `Factory Method 패턴`은 객체 생성시 하위 클래스를 정의해서 생성하는 형태를 취하게 된다.
+
+<br/>
+
+Adapter 패턴은 Bridge 패턴과 유사한 구조를 가진다. 그러나 두 패턴의 사용 목적은 완전히 다르다.
+
+즉, `Bridge 패턴`의 경우에는 **인터페이스와 구현을 분리**시켜줌으로써 **서로 독립적으로 변경이 가능하게** 만들려는 목적인데 반해  
+`Adapter 패턴`은 **이미 존재하는 객체의 인터페이스를 다른 형태로 변경시켜주는 것**이 목적이다.
+
+<br/>
+
+`Decorator 패턴`은 인터페이스의 변경 없이 객체의 기능을 추가할 수 있는 방식이며,  
+이런 측면에서 `Adapter 패턴`보다 좀 더 유연하다.
+
+<br/>
+
+Facade 패턴은 **기존 클래스의 기능을 추상화시킨다**는 점에서 Mediator 패턴과 유사하다.
+
+그러나 `Mediator 패턴`에서는 다른 객체들이 Mediator 객체의 존재를 알아야 하지만,  
+`Facade 패턴`에서는 그럴 필요가 없다는 것이 다른 점이다.
+
+즉, Facade 패턴에서는 **서브 시스템 내의 객체들이 Facade 객체의 존재를 알 필요가 없다.**
+
+더불어 `Mediator 패턴`에서는 각 객체들이 서로 직접적인 통신을 하지 않는 것이 원칙이나, Facade 패턴에서는 그런 제약이 없다.
+
+한편 `Facade 객체`는 하나만 존재하면 될 경우가 많으므로, 주로 `Singleton 패턴` 형태로 구현될 경우가 많다.
+
+<br/>
+
+`Flyweight 패턴`은 `Strategy, State, Interpreter 패턴`에서 알고리즘이나 상태 정보 Terminal Symbol들을 각각 공유하기 위해 사용될 수 있다.
+
+<br/>
+
+`Decorator 패턴`은 **이미 존재하는 객체에게 새로운 기능을 덧입히는** 역할을 하는데 반해  
+`Strategy 패턴`은 객체 내부의 구체적인 동작이나 알고리즘을 **외부 객체에게 위임**시키는 형태다.
+
+따라서 Decorate 패턴은 객체의 겉을 변경시켜주는 역할을 하고,  
+Strategy 패턴은 객체의 속을 변경시켜주는 역할을 한다고 할 수 있다.
+
+<br/>
+
+`Proxy 패턴`은 Client가 호출하는 인터페이스의 변경 없이 다른 객체의 기능 수행을 대행해주는 역할을 한다.
+
+그러나 Proxy 패턴은 `Adapter 패턴`과는 달리 **인터페이스의 변경이 주목적이 아니다.**
+
+<br/>
+
+`Memento 패턴`은 `Iterator 패턴`의 반복 상태를 저장하기 위해 사용되거나,  
+`Command 패턴`에서 명령이 수행되기 이전 상태로 되돌리기 위해 사용될 수 있다.
+
+<br/>
+
+`Observer 패턴`은 객체들간의 의존 관계를 **분산시켜** 관리하는데 반해  
+`Mediator 패턴`은 이들을 **중앙 집중적으로** 관리한다.
+
+따라서 객체들간의 복잡한 의존 관계를 한 곳에서 관리하고 싶을 때 Mediator 패턴을 사용할 수 있다.
+
+<br/>
+
+`Template Method 패턴`에서는 내부의 알고리즘 단계를 정의할 때 `Strategy 패턴`을 사용할 수 있으며,  
+대개 `Factory Method 패턴`을 사용해서 필요한 객체를 생성한다.
+
 <br/>
 <br/>
 
