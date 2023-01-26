@@ -20,5 +20,5 @@
 10. [상태 패턴](/Chapter10/README.md)
 11. [프록시 패턴](/Chapter11/README.md)
 12. [복합 패턴](/Chapter12/README.md)
-13. 실전 디자인 패턴
-14. 기타 패턴
+13. [실전 디자인 패턴](/Chapter13/README.md)
+14. [기타 패턴](/Chapter14/README.md)
