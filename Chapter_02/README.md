@@ -8,13 +8,13 @@
 
 간단히 정리하자면, 어떤 객체의 상태가 변할 때 그와 연관된 객체들에게 알림을 보내는 디자인 패턴이 옵저버 패턴이다.
 
-위의 그림과 똑같이 구현하게 된다면 Observer 객체의 종류가 다양할 때, 정적으로 Subject 객체에 하나씩 더해주어야만한다.
+위의 그림과 똑같이 구현하게 된다면 Observer 객체의 종류가 다양할 때, 정적으로 Subject 객체에 하나씩 더해주어야만 한다.
 
 즉, 코드의 유연성이 현저히 떨어진다.
 
-이를 해결하기 위해서는, 다형성을 활용하여 Observer 객체들은 Observer Interface를 상속하여 Subject 객체에 List로 Observer 객체들을 담아야한다.
+이를 해결하기 위해서는, 다형성을 활용하여 Observer 객체들은 Observer Interface를 상속하여 Subject 객체에 List로 Observer 객체들을 담아야 한다.
 
-이 Observer들은 Subject의 상태가 바뀔 때 갱신이 되어야하므로, notify라는 함수를 가져야한다. Subject는 Observer.notify(~)의 형식을 활용하여 상태가 바뀔 때 Observer들을 call하거나 data를 전송할 수 있게된다.
+이 Observer들은 Subject의 상태가 바뀔 때 갱신이 되어야하므로, notify라는 함수를 가져야한다. Subject는 Observer.notify(~)의 형식을 활용하여 상태가 바뀔 때 Observer들을 call하거나 data를 전송할 수 있게 된다.
 
 즉, 다음과 같은 구조가 될 것이다.
 
@@ -23,7 +23,7 @@
 
 ### 디자인 원칙
 
-> 💡 상호작용하는 객체 사이에는 가능하면 느슨한 결합을 사용해야한다.
+> 💡 상호작용하는 객체 사이에는 가능하면 느슨한 결합을 사용해야 한다.
 
 느슨하게 결합하는 디자인을 사용하면 변경사항이 생겨도 무난히 처리할 수 있는 유연한 객체지향 시스템을 구축할 수 있다.
 
@@ -181,11 +181,11 @@ Process finished with exit code 0
 
 위에서는 subject가 data를 push하고, observer가 data를 가공하여 사용했다.
 
-이렇게 되면, 필요한 data만 가지고 있는 것이 아니라 필요 없는 data도 일단은 받고 사용하여야한다.
+이렇게 되면, 필요한 data만 가지고 있는 것이 아니라 필요 없는 data도 일단은 받고 사용하여야 한다.
 
-확장성의 측면으로 볼때, observer에서 notify 함수가 불렸을 때, **subject객체로부터 data를 가져오는 방식(pull)** 이 더 괜찮다고 볼 수 있다.
+확장성의 측면으로 볼때, observer에서 notify 함수가 불렸을 때, **subject객체로부터 data를 가져오는 방식(pull)**이 더 괜찮다고 볼 수 있다.
 
-observer는 subject에 등록과 삭제하기 위해 subject 객체를 갖으므로 subject.getData()를 통해 데이터를 pull해올 수 있다.
+observer는 subject에 등록과 삭제하기 위해 subject 객체를 가지므로 subject.getData()를 통해 데이터를 pull 해올 수 있다.
 
 코드를 바꿔보도록 하자.
 
@@ -193,14 +193,14 @@ Observer code
 
 ```java
 public interface Observer {
-    void update(float temp, float humidity, float pressure);
+    void update();
 }
 
 public class ConditionDisplay implements Observer, DisplayElement{
     private float humidity;
     private float temperature;
 
-    private WeatherData ;
+    private WeatherData;
 
     public ConditionDisplay(WeatherData weatherData) {
         this.weatherData = weatherData;
@@ -215,7 +215,7 @@ public class ConditionDisplay implements Observer, DisplayElement{
     @Override
     public void update() {
         // 당연하지만, interface 및 부수적인 코드도 변경해야한다.
-				this.temperature = weatherData.getTemperature();
+        this.temperature = weatherData.getTemperature();
         this.humidity = weatherData.getHumidity();
         display();
     }
@@ -226,7 +226,7 @@ subject의 상태는 계속 바뀌는 것을 가정하기 때문에 get을 사�
 
 (이러한 측면에서 볼때 get 메서드를 삭제하고 data를 push하는 것이 나을 수도 있다.)
 
-참고 : Subject에서 List<Observer>의 순서에 의존하지 말라는 JDK 권고가 있으니 주의하여야한다.
+참고 : Subject에서 List<Observer>의 순서에 의존하지 말라는 JDK 권고가 있으니 주의하여야 한다.
 
 ---
 
@@ -300,12 +300,10 @@ public void notifyObservers(Object arg) {
     }
 ```
 
-notify 하는 코드인데, syncronized블럭으로 위에서 말한 막 등록된 옵저버가 알림을 받지 못하거나, 막 삭제된 옵저버가 잘못 알림을 받는 등의 race condition을 방지하고 있다.
+notify 하는 코드인데, syncronized 블럭으로 위에서 말한 막 등록된 옵저버가 알림을 받지 못하거나, 막 삭제된 옵저버가 잘못 알림을 받는 등의 race condition을 방지하고 있다.
 
-Observable클래스는 상속을 해야하는데, 상속을 하면 다중상속을 못하기 때문에 한계가 생기고, 옵저버 패턴을 자유롭게 custom할 수 없어진다.
+Observable 클래스는 상속을 해야하는데, 상속을 하면 다중상속을 못하기 때문에 한계가 생기고, 옵저버 패턴을 자유롭게 custom 할 수 없어진다.
 
-때문에 옵저버 패턴을 스스로 구현하는게 낫다고 생각하는 사람들과 더 강력한 기능을 스스로 구현하는게 낫다고
+때문에 옵저버 패턴을 스스로 구현하는게 낫다고 생각하는 사람들과 더 강력한 기능을 스스로 구현하는게 낫다고 생각하는 사람들이 늘어 **자바 9 이후로는 사용이 불가함**을 알아두자.
 
-생각하는 사람들이 늘어 **자바 9 이후로는 사용이 불가함** 을 알아두자.
-
-위에서 얻을 수 있는 것은 **멀티스레드 환경에서 옵저버 패턴을 사용하려면 나타날 수 있는 race condition들에 유의하고 적절히 사용하여야한다는 것이다.**
+위에서 얻을 수 있는 것은 **멀티스레드 환경에서 옵저버 패턴을 사용하려면 나타날 수 있는 race condition들에 유의하고 적절히 사용하여야 한다는 것이다.**
