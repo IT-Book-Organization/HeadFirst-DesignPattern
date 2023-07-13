@@ -49,7 +49,7 @@ component를 인스턴스 변수로 가지고 있어 Chapter 1의 **상속보다
 
 ### 데코레이터 패턴 예시
 
-특정 커피의 가격이 얼마인지 출력하는 프로그램을 만든다고 하자. 
+특정 커피의 가격이 얼마인지 출력하는 프로그램을 만든다고 하자.
 
 그렇다면 커피의 종류는 다양하므로 다음과 같이 구조를 짜게 될 것이다.
 
@@ -77,8 +77,6 @@ component를 인스턴스 변수로 가지고 있어 Chapter 1의 **상속보다
 
 코드를 보자. (편의상 중복되는 Whip과 Mocha, HouseBlend와 Espresso는 하나씩만 보도록 하자.)
 
-<br/>
-
 #### Beverage와 핵심 기능 구현체
 
 ```java
@@ -92,7 +90,7 @@ public abstract class Beverage {
     public abstract double cost();
 }
 
-public class Espresso extends Beverage{
+public class Espresso extends Beverage {
     public Espresso() {
         description = "에스프레소";
     }
@@ -109,12 +107,13 @@ public class Espresso extends Beverage{
 #### Decorator
 
 ```java
-public abstract class CondimentDecorator extends Beverage{
+public abstract class CondimentDecorator extends Beverage {
     Beverage beverage;
+
     public abstract String getDescription();
 }
 
-public class Whip extends CondimentDecorator{
+public class Whip extends CondimentDecorator {
     public Whip(Beverage beverage) {
         this.beverage = beverage;
     }
@@ -165,7 +164,8 @@ public class Application {
 
 <br/>
 
-재귀적으로 Whip.cost() → Mocha.cost() → Mocha.cost() → HouseBlend.cost() return → Mocha.cost() return → Mocha.cost() return → Whip.cost() return 순서로 호출된다.
+재귀적으로 `Whip.cost() → Mocha.cost() → Mocha.cost() → HouseBlend.cost() return → Mocha.cost() return → Mocha.cost() return →
+Whip.cost() return` 순서로 호출된다.
 
 즉, <b>장식하고 있는 객체(구성)</b>에 가격을 구하는 작업을 **위임**해서 값을 구하고, 거기에 추가기능을 더해 반환하는 것이다.
 
@@ -181,12 +181,12 @@ public class Application {
 
 <br/>
 
-**단점 및 고려해야하는 점**
+**단점 및 고려해야 하는 점**
 
-- 만약, **구상 구성 요소(ConcreteComponent, 위 예시에서는 Esfresso)에서 메서드를 통해 특별 할인 행사를 한다거나 하는 작업을 한다**고 하면 어떨까?  
+- 만약, **구상 구성 요소(ConcreteComponent, 위 예시에서는 Espresso)에서 메서드를 통해 특별 할인 행사를 한다거나 하는 작업을 한다**고 하면 어떨까?  
   데코레이터로 감싸지면 **구상 구성 요소로 어떤 작업을 처리하는 코드는 제대로 작동하지 않을 수 있다.**  
   즉, 구상 구성 요소로 돌아가는 코드를 만들어야 한다면 데코레이터 패턴 사용을 다시 한번 생각해보아야 한다.
-- 데코레이터 패턴을 쓰면 관리해야할 객체가 늘어나 코딩할 때 실수할 가능성이 높아져  
+- 데코레이터 패턴을 쓰면 관리해야 할 객체가 늘어나 코딩할 때 실수할 가능성이 높아져  
   실제로는 **팩토리나 빌더 같은 다른 패턴으로 데코레이터를 만들고 사용한다.**
 - 코드가 매우 복잡해질 수 있다
 
@@ -198,7 +198,6 @@ public class Application {
 
 <p align="center"><img width="600" alt="img" src="https://user-images.githubusercontent.com/76640167/210151247-45f13cbf-ca26-4176-8b26-a8ff4a550d58.png"></p>
 
-<br/>
 <br/>
 
 #### 구성
@@ -218,22 +217,22 @@ public class Application {
 ```java
 public class LowerCaseInputStream extends FilterInputStream {
 
-	public LowerCaseInputStream(InputStream in) {
-		super(in);
-	}
- 
-	public int read() throws IOException {
-		int c = in.read();
-		return (c == -1 ? c : Character.toLowerCase((char)c));
-	}
-		
-	public int read(byte[] b, int offset, int len) throws IOException {
-		int result = in.read(b, offset, len);
-		for (int i = offset; i < offset+result; i++) {
-			b[i] = (byte)Character.toLowerCase((char)b[i]);
-		}
-		return result;
-	}
+    public LowerCaseInputStream(InputStream in) {
+        super(in);
+    }
+
+    public int read() throws IOException {
+        int c = in.read();
+        return (c == -1 ? c : Character.toLowerCase((char) c));
+    }
+
+    public int read(byte[] b, int offset, int len) throws IOException {
+        int result = in.read(b, offset, len);
+        for (int i = offset; i < offset + result; i++) {
+            b[i] = (byte) Character.toLowerCase((char) b[i]);
+        }
+        return result;
+    }
 }
 ```
 
@@ -243,21 +242,20 @@ public class LowerCaseInputStream extends FilterInputStream {
 
 ```java
 public class InputTest {
-	public static void main(String[] args) throws IOException {
-		int c;
-		
-		try (InputStream in2 = 
-				new LowerCaseInputStream(
-					new BufferedInputStream(
-						new FileInputStream("test.txt")))) 
-		{
-			while((c = in2.read()) >= 0) {
-				System.out.print((char)c);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) throws IOException {
+        int c;
+
+        try (InputStream in2 =
+                     new LowerCaseInputStream(
+                             new BufferedInputStream(
+                                     new FileInputStream("test.txt")))) {
+            while ((c = in2.read()) >= 0) {
+                System.out.print((char) c);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
